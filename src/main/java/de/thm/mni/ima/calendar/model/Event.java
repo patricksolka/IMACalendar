@@ -19,10 +19,10 @@ public class Event {
   /**
    * Creates a new Event object with the given start time, end time, subject, and type.
    *
-   * @param start the start time of the event
-   * @param end the end time of the event
+   * @param start   the start time of the event
+   * @param end     the end time of the event
    * @param subject the subject or title of the event
-   * @param type the type of the event, which is one of the EventType values
+   * @param type    the type of the event, which is one of the EventType values
    */
   @JsonCreator
   public Event(
@@ -100,13 +100,14 @@ public class Event {
    * (2024-05-03 - 2024-05-10) (2024-05-05 - 2024-05-07) = true (included in event)
    * (2024-05-03 - 2024-05-10) (2024-05-05 - 2024-05-15) = true (intersects)
    * (2024-05-03 - 2024-05-10) (2024-05-11 - 2024-05-12) = false (does not intersect)
-   *</pre>
+   * </pre>
    *
    * @param bEvent the event to compare with
    * @return true if there is an overlap, false otherwise
    */
   public boolean overlaps(Event bEvent) {
-    return false; // TODO: implement correctly
+    return (this.start.isBefore(bEvent.end) || this.start.equals(bEvent.end))
+      && (this.end.isAfter(bEvent.start) || this.end.equals(bEvent.start));
   }
 
   /**
@@ -116,7 +117,12 @@ public class Event {
    * @return the number of overlapping days, or 0 if there is no overlap
    */
   public int overlap(Event bEvent) {
-    return 0; // TODO: implement correctly
+    if (!this.overlaps(bEvent)) return 0;
+
+    LocalDate s = this.start.isAfter(bEvent.start) ? this.start : bEvent.start;
+    LocalDate e = this.end.isBefore(bEvent.end)   ? this.end   : bEvent.end;
+
+    return (int) java.time.temporal.ChronoUnit.DAYS.between(s, e) + 1;
   }
 
   /**
@@ -127,7 +133,11 @@ public class Event {
    * @return the minimum LocalDate value between a and b
    */
   private LocalDate min(LocalDate a, LocalDate b) {
-    return LocalDate.of(2024, 1, 1); // TODO: implement correctly
+    if (a.isBefore(b)) {
+      return a;
+    } else {
+      return b;
+    }
   }
 
 
@@ -139,7 +149,11 @@ public class Event {
    * @return the maximum LocalDate value between a and b
    */
   private LocalDate max(LocalDate a, LocalDate b) {
-    return LocalDate.of(2024, 1, 1); // TODO: implement correctly
+    if (a.isAfter(b)) {
+      return b;
+    } else {
+      return a;
+    }
   }
 
   @Override
