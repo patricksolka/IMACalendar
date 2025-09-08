@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import de.thm.mni.ima.calendar.model.Calendar;
 import de.thm.mni.ima.framework.Entity;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -20,9 +21,10 @@ public class Employee extends Entity {
 
   /**
    * Creates a new employee with the given parameters.
-   * @param fname First name of the employee
-   * @param sname Second name of the employee
-   * @param email Email of the employee
+   *
+   * @param fname      First name of the employee
+   * @param sname      Second name of the employee
+   * @param email      Email of the employee
    * @param department Department of the employee
    */
   public Employee(
@@ -37,12 +39,11 @@ public class Employee extends Entity {
   /**
    * Creates a new employee with the given parameters.
    *
-   * @param fname First name of the employee
-   * @param sname Second name of the employee
-   * @param email Email of the employee
+   * @param fname      First name of the employee
+   * @param sname      Second name of the employee
+   * @param email      Email of the employee
    * @param department Department of the employee
-   * @param calendar Calendar of the employee
-   *
+   * @param calendar   Calendar of the employee
    * @throws IllegalArgumentException If any of the parameters is null or blank
    */
   @JsonCreator
@@ -53,7 +54,7 @@ public class Employee extends Entity {
     @JsonProperty("department") String department,
     @JsonProperty("calendar") Calendar calendar,
     @JsonProperty("id") Optional<Long> id
-    ) {
+  ) {
     if (fname == null || fname.isBlank()) {
       throw new IllegalArgumentException("First name must not be null or blank");
     }
@@ -111,5 +112,36 @@ public class Employee extends Entity {
       calendar,
       getId().orElse(0L)
     );
+  }
+
+  /**
+   * Identity-based equality: two employees are equal iff both ids are present and equal.
+   *
+   * @param o object to compare
+   * @return true if same class and same non-null id; otherwise false
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Employee other = (Employee) o;
+
+    var id1 = this.getId();
+    var id2 = other.getId();
+    if (id1.isEmpty() || id2.isEmpty()) return false;
+    return id1.get().equals(id2.get());
+  }
+
+
+  /**
+   * Hash consistent with equals: uses id if present, otherwise identity hash.
+   *
+   * @return hash code matching the equality contract
+   */
+  @Override
+  public int hashCode() {
+    return getId()
+      .map(id -> Long.hashCode(id))
+      .orElse(System.identityHashCode(this));
   }
 }
