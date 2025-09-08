@@ -132,7 +132,6 @@ public class Employee extends Entity {
     return id1.get().equals(id2.get());
   }
 
-
   /**
    * Hash consistent with equals: uses id if present, otherwise identity hash.
    *
