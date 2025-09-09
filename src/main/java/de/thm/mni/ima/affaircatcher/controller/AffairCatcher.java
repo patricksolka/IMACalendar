@@ -27,8 +27,16 @@ public class AffairCatcher {
     var aEvents = a.getEvents().stream().filter(e -> e.getType() == EventType.HOLIDAY).toList();
     var bEvents = b.getEvents().stream().filter(e -> e.getType() == EventType.HOLIDAY).toList();
 
+    int totalA = aEvents.stream().mapToInt(e -> e.duration()).sum();
+    if (totalA == 0) return 0;
 
-    return 0; // TODO: Calculate the overlap percentage
+    int overlap = 0;
+    for (var ea : aEvents) {
+      for (var eb : bEvents) {
+        overlap += ea.overlap(eb);
+      }
+    }
+    return (int) Math.round(100.0 * overlap / totalA);
   }
 
   /**
@@ -39,14 +47,24 @@ public class AffairCatcher {
    */
   public static List<AffairResult> computeAffairs(Collection<Employee> employees) {
     List<AffairResult> affairResults = new ArrayList<>();
+    var list = new ArrayList<>(employees);
 
-    // TODO: Implement the affair calculation
+    for (int i = 0; i < list.size(); i++) {
+      for (int j = 0; j < list.size(); j++) {
+        if (i == j) continue;
+        var a = list.get(i);
+        var b = list.get(j);
 
-    // TODO: Sort the affair results by the probability of an affair
-    // you can use the sort method of list
-    // The sort method requires a function (a, b) -> INT (negative if smaller, 0 if equal, positive if greater)
+        int probability = overlapPercentage(a.getCalendar(), b.getCalendar());
+        affairResults.add(new AffairResult(
+          a.getFname() + " " + a.getSname(),
+          b.getFname() + " " + b.getSname(),
+          probability
+        ));
+      }
+    }
 
-
+    affairResults.sort(java.util.Comparator.comparingInt(AffairResult::getProbability).reversed());
     return affairResults;
   }
 }
