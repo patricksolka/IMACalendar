@@ -19,10 +19,10 @@ public class Event {
   /**
    * Creates a new Event object with the given start time, end time, subject, and type.
    *
-   * @param start the start time of the event
-   * @param end the end time of the event
+   * @param start   the start time of the event
+   * @param end     the end time of the event
    * @param subject the subject or title of the event
-   * @param type the type of the event, which is one of the EventType values
+   * @param type    the type of the event, which is one of the EventType values
    */
   @JsonCreator
   public Event(
@@ -100,13 +100,18 @@ public class Event {
    * (2024-05-03 - 2024-05-10) (2024-05-05 - 2024-05-07) = true (included in event)
    * (2024-05-03 - 2024-05-10) (2024-05-05 - 2024-05-15) = true (intersects)
    * (2024-05-03 - 2024-05-10) (2024-05-11 - 2024-05-12) = false (does not intersect)
-   *</pre>
+   * </pre>
    *
    * @param bEvent the event to compare with
    * @return true if there is an overlap, false otherwise
    */
   public boolean overlaps(Event bEvent) {
-    return false; // TODO: implement correctly
+    if (bEvent == null) return false;
+    // Zwei inklusive Intervalle [start,end] und [b.start,b.end] überlappen,
+    // wenn max(start, b.start) <= min(end, b.end)
+    LocalDate s = max(this.start, bEvent.start);
+    LocalDate e = min(this.end, bEvent.end);
+    return !e.isBefore(s); // true, wenn e >= s
   }
 
   /**
@@ -116,7 +121,12 @@ public class Event {
    * @return the number of overlapping days, or 0 if there is no overlap
    */
   public int overlap(Event bEvent) {
-    return 0; // TODO: implement correctly
+    if (bEvent == null) return 0;
+    if (!overlaps(bEvent)) return 0;
+    LocalDate s = max(this.start, bEvent.start);
+    LocalDate e = min(this.end, bEvent.end);
+    // inklusiv zählen (wie bei duration()): +1
+    return (int) ChronoUnit.DAYS.between(s, e) + 1;
   }
 
   /**
@@ -127,9 +137,8 @@ public class Event {
    * @return the minimum LocalDate value between a and b
    */
   private LocalDate min(LocalDate a, LocalDate b) {
-    return LocalDate.of(2024, 1, 1); // TODO: implement correctly
+    return a.isBefore(b) ? a : b;
   }
-
 
   /**
    * Finds the maximum of two LocalDate values.
@@ -139,7 +148,7 @@ public class Event {
    * @return the maximum LocalDate value between a and b
    */
   private LocalDate max(LocalDate a, LocalDate b) {
-    return LocalDate.of(2024, 1, 1); // TODO: implement correctly
+    return a.isAfter(b) ? a : b;
   }
 
   @Override

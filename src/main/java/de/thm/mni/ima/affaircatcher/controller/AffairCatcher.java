@@ -2,11 +2,13 @@ package de.thm.mni.ima.affaircatcher.controller;
 
 import de.thm.mni.ima.affaircatcher.model.AffairResult;
 import de.thm.mni.ima.calendar.model.Calendar;
+import de.thm.mni.ima.calendar.model.Event;
 import de.thm.mni.ima.calendar.model.EventType;
 import de.thm.mni.ima.user.model.Employee;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -23,19 +25,23 @@ public class AffairCatcher {
    * @return the overlap percentage as an integer
    */
   public static int overlapPercentage(Calendar a, Calendar b) {
-    // Filter the events to only include holidays only
-    var aEvents = a.getEvents().stream().filter(e -> e.getType() == EventType.HOLIDAY).toList();
-    var bEvents = b.getEvents().stream().filter(e -> e.getType() == EventType.HOLIDAY).toList();
+    var aEvents = a.getEvents().stream()
+      .filter(e -> e.getType() == EventType.HOLIDAY)
+      .toList();
+    var bEvents = b.getEvents().stream()
+      .filter(e -> e.getType() == EventType.HOLIDAY)
+      .toList();
 
-    int totalA = aEvents.stream().mapToInt(e -> e.duration()).sum();
+    int totalA = aEvents.stream().mapToInt(Event::duration).sum();
     if (totalA == 0) return 0;
 
     int overlap = 0;
     for (var ea : aEvents) {
       for (var eb : bEvents) {
-        overlap += ea.overlap(eb);
+        overlap += ea.overlap(eb); // overlap in INKLUSIVEN Tagen
       }
     }
+
     return (int) Math.round(100.0 * overlap / totalA);
   }
 
@@ -51,7 +57,7 @@ public class AffairCatcher {
 
     for (int i = 0; i < list.size(); i++) {
       for (int j = 0; j < list.size(); j++) {
-        if (i == j) continue;
+        if (i == j) continue; // kein Paar mit sich selbst
         var a = list.get(i);
         var b = list.get(j);
 
@@ -64,7 +70,7 @@ public class AffairCatcher {
       }
     }
 
-    affairResults.sort(java.util.Comparator.comparingInt(AffairResult::getProbability).reversed());
+    affairResults.sort(Comparator.comparingInt(AffairResult::getProbability).reversed());
     return affairResults;
   }
 }
