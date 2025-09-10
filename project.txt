@@ -1,6 +1,27 @@
 Vorname Nachname Matrikelnummer
-Max Mustermann 232344
-Kim Kimberfrau 521355
+Dimitrios Paliouras 5202544
+Patrick Solka +++++
 
 Ihre Antwort auf Einführung in Deutschland
 
+Antwort:
+
+5.5 Einführung in Deutschland – DSGVO-Einschätzung
+Die App verarbeitet Namen und Urlaubszeiträume von Beschäftigten und berechnet Überschneidungen. Ziel („Affären“-Erkennung) ist arbeitsrechtlich/DSGVO-kritisch.
+
+Rechtsgrundlage: Für das Beschäftigungsverhältnis i. d. R. nicht erforderlich (§ 26 BDSG). „Berechtigtes Interesse“ (Art. 6 Abs. 1 f) dürfte an der Interessenabwägung scheitern (starker Eingriff in die Privatsphäre).
+Art. 9-Risiko: Aus der Logik können Rückschlüsse auf intime Beziehungen/sexuelles Leben gezogen werden → besondere Kategorien → grundsätzlich verboten ohne Ausnahmen; Einwilligung im Arbeitsverhältnis meist nicht freiwillig.
+Transparenz: Ohne Information der Betroffenen (Art. 13/14) unzulässig.
+Mitbestimmung: Software zur Verhaltenskontrolle ist i. d. R. betriebsrats­pflichtig (§ 87 BetrVG).
+DSFA: Wegen Profiling/hohem Risiko wahrscheinlich erforderlich (Art. 35).
+
+Fazit: In der vorgesehenen Form nicht DSGVO-konform.
+Wenn überhaupt vertretbar: Nur anonym/aggregiert, klare Zweckbindung, strenge Minimierung, kurze Aufbewahrung, Transparenz & Betriebsvereinbarung.
+
+Quellenverzeichnis:
+https://dejure.org/gesetze/BDSG/26.html
+https://dsgvo-gesetz.de/bdsg/26-bdsg/
+https://dsgvo-gesetz.de/art-13-dsgvo/
+https://dsgvo-gesetz.de/art-9-dsgvo/
+https://dsgvo-gesetz.de/art-35-dsgvo/
+https://www.gesetze-im-internet.de/betrvg/__87.html
