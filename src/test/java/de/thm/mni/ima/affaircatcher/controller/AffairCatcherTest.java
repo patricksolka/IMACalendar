@@ -13,7 +13,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AffairCatcherTest {
+class  AffairCatcherTest {
 
   @Test
   void overlapPercentage() {
