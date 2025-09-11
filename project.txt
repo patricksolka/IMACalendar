@@ -1,6 +1,27 @@
-Vorname Nachname Matrikelnummer
-Max Mustermann 232344
-Kim Kimberfrau 521355
+Vorname Nachname Matrikelnummer:
+Patrick Solka 5447859
+Dimitrios Paliouras 521355
 
-Ihre Antwort auf Einführung in Deutschland
+Ihre Antwort auf Einführung in Deutschland:
+
+Die geplante Einführung der Software ist in Deutschland ohne weiteres nicht zulässig,
+insbesondere dann nicht, wenn die Mitarbeiter nicht über die Verarbeitung personenenbezogener
+Daten informiert werden.
+
+
+Die geplante Einführung der Software ist in Deutschland nach der DSGVO nicht ohne Weiteres zulässig,
+insbesondere dann nicht, wenn die Mitarbeiter nicht über die Verarbeitung ihrer personenbezogenen Daten informiert werden sollen.
+Nach Art. 5 Abs. 1 DSGVO müssen personenbezogene Daten auf rechtmäßige Weise,
+nach Treu und Glauben und in einer für die betroffene Person nachvollziehbaren Weise verarbeitet werden (Grundsatz der Transparenz).
+Der Verantwortliche ist zudem laut Art. 5 Abs. 2 DSGVO rechenschaftspflichtig.
+Darüber hinaus ergibt sich aus Art. 6 DSGVO, dass jede Verarbeitung personenbezogener Daten eine Rechtsgrundlage benötigt (z. B. Vertragserfüllung oder berechtigtes Interesse).
+Des Weiteren besteht nach Art. 13 DSGVO eine Informationspflicht, selbst wenn eine solche Rechtsgrundlage vorliegt. Mitarbeiter müssen insbesondere über Zweck, Umfang, Speicherdauer und ihre Rechte informiert werden.
+Ergänzend garantiert Art. 15 DSGVO den betroffenen Personen ein Auskunftsrecht über ihre Daten.
+Dieses Recht kann nicht erfüllt werden, wenn die Verarbeitung vor den Mitarbeitern geheim gehalten wird.
+Darüber hinaus ist der Softwarebetreiber dafür verantwortlich, geeignete Maßnahmen zu treffen, um die Einhaltung der DSGVO sicherzustellen.
+Auch die Erwägungsgründe (39) und (74) betonen die Bedeutung von Transparenz, Nachvollziehbarkeit und die Verantwortung des Softwarebetreibers.
+
+Abschließend lässt sich sagen, dass die IMA ihre Software nur dann Einführen darf, wenn die oben genannten Gründe eingehalten werden.
+Andernfalls ist die Verwendung nicht rechtmäßig beziehungsweise nicht DSGVO-Konform.
+
 
