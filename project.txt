@@ -1,27 +1,38 @@
-Vorname Nachname Matrikelnummer
+Vorname Nachname Matrikelnummer:
+Patrick Solka 5447859
 Dimitrios Paliouras 5202544
-Patrick Solka +++++
 
-Ihre Antwort auf Einführung in Deutschland
+Ihre Antwort auf Einführung in Deutschland:
 
-Antwort:
+Die geplante Einführung der Software ist in Deutschland ohne weiteres nicht zulässig,
+insbesondere dann nicht, wenn die Mitarbeiter nicht über die Verarbeitung personenenbezogener
+Daten informiert werden.
 
-5.5 Einführung in Deutschland – DSGVO-Einschätzung
-Die App verarbeitet Namen und Urlaubszeiträume von Beschäftigten und berechnet Überschneidungen. Ziel („Affären“-Erkennung) ist arbeitsrechtlich/DSGVO-kritisch.
 
-Rechtsgrundlage: Für das Beschäftigungsverhältnis i. d. R. nicht erforderlich (§ 26 BDSG). „Berechtigtes Interesse“ (Art. 6 Abs. 1 f) dürfte an der Interessenabwägung scheitern (starker Eingriff in die Privatsphäre).
-Art. 9-Risiko: Aus der Logik können Rückschlüsse auf intime Beziehungen/sexuelles Leben gezogen werden → besondere Kategorien → grundsätzlich verboten ohne Ausnahmen; Einwilligung im Arbeitsverhältnis meist nicht freiwillig.
-Transparenz: Ohne Information der Betroffenen (Art. 13/14) unzulässig.
-Mitbestimmung: Software zur Verhaltenskontrolle ist i. d. R. betriebsrats­pflichtig (§ 87 BetrVG).
-DSFA: Wegen Profiling/hohem Risiko wahrscheinlich erforderlich (Art. 35).
+Die geplante Einführung der Software ist in Deutschland nach der DSGVO nicht ohne Weiteres zulässig,
+insbesondere dann nicht, wenn die Mitarbeiter nicht über die Verarbeitung ihrer personenbezogenen Daten informiert werden sollen.
+Nach Art. 5 Abs. 1 DSGVO müssen personenbezogene Daten auf rechtmäßige Weise,
+nach Treu und Glauben und in einer für die betroffene Person nachvollziehbaren Weise verarbeitet werden (Grundsatz der Transparenz).
+Der Verantwortliche ist zudem laut Art. 5 Abs. 2 DSGVO rechenschaftspflichtig.
+Darüber hinaus ergibt sich aus Art. 6 DSGVO, dass jede Verarbeitung personenbezogener Daten eine Rechtsgrundlage benötigt (z. B. Vertragserfüllung oder berechtigtes Interesse).
+Des Weiteren besteht nach Art. 13 DSGVO eine Informationspflicht, selbst wenn eine solche Rechtsgrundlage vorliegt. Mitarbeiter müssen insbesondere über Zweck, Umfang, Speicherdauer und ihre Rechte informiert werden.
+Ergänzend garantiert Art. 15 DSGVO den betroffenen Personen ein Auskunftsrecht über ihre Daten.
+Dieses Recht kann nicht erfüllt werden, wenn die Verarbeitung vor den Mitarbeitern geheim gehalten wird.
+Darüber hinaus ist der Softwarebetreiber dafür verantwortlich, geeignete Maßnahmen zu treffen, um die Einhaltung der DSGVO sicherzustellen.
+Auch die Erwägungsgründe (39) und (74) betonen die Bedeutung von Transparenz, Nachvollziehbarkeit und die Verantwortung des Softwarebetreibers.
+Zusätzlich würde eine geheime Verarbeitung in Deutschland auch die Mitbestimmungsrechte des Betriebsrats nach Art. 87 Abs. 1 Nr. 6 BetrVG verletzen, da der Einsatz von Software zur Überwachung von Verhalten oder Leistung der Mitarbeiter der Zustimmung des Betriebsrats bedarf.
 
-Fazit: In der vorgesehenen Form nicht DSGVO-konform.
-Wenn überhaupt vertretbar: Nur anonym/aggregiert, klare Zweckbindung, strenge Minimierung, kurze Aufbewahrung, Transparenz & Betriebsvereinbarung.
+Abschließend lässt sich sagen, dass die IMA ihre Software nur dann einführen darf, wenn die oben genannten Gründe eingehalten werden.
+Andernfalls ist die Verwendung nicht rechtmäßig, beziehungsweise nicht DSGVO-Konform.
+
 
 Quellenverzeichnis:
-https://dejure.org/gesetze/BDSG/26.html
-https://dsgvo-gesetz.de/bdsg/26-bdsg/
+https://dsgvo-gesetz.de/art-5-dsgvo/
+https://dsgvo-gesetz.de/art-6-dsgvo/
 https://dsgvo-gesetz.de/art-13-dsgvo/
-https://dsgvo-gesetz.de/art-9-dsgvo/
-https://dsgvo-gesetz.de/art-35-dsgvo/
+https://dsgvo-gesetz.de/art-15-dsgvo/
+https://dsgvo-gesetz.de/erwaegungsgruende/nr-39/
+https://dsgvo-gesetz.de/erwaegungsgruende/nr-74/
 https://www.gesetze-im-internet.de/betrvg/__87.html
+
+
