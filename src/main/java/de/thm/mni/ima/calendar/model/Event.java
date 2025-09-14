@@ -119,10 +119,10 @@ public class Event {
   public int overlap(Event bEvent) {
     if (!this.overlaps(bEvent)) return 0;
 
-    LocalDate s = this.start.isAfter(bEvent.start) ? this.start : bEvent.start;
-    LocalDate e = this.end.isBefore(bEvent.end)   ? this.end   : bEvent.end;
+    LocalDate start = max(this.start, bEvent.start);
+    LocalDate end = min(this.end, bEvent.end);
 
-    return (int) java.time.temporal.ChronoUnit.DAYS.between(s, e) + 1;
+    return (int) java.time.temporal.ChronoUnit.DAYS.between(start, end) + 1;
   }
 
   /**
@@ -133,11 +133,7 @@ public class Event {
    * @return the minimum LocalDate value between a and b
    */
   private LocalDate min(LocalDate a, LocalDate b) {
-    if (a.isBefore(b)) {
-      return a;
-    } else {
-      return b;
-    }
+    return a.isBefore(b) ? a : b;
   }
 
 
@@ -149,12 +145,9 @@ public class Event {
    * @return the maximum LocalDate value between a and b
    */
   private LocalDate max(LocalDate a, LocalDate b) {
-    if (a.isAfter(b)) {
-      return b;
-    } else {
-      return a;
-    }
+    return a.isAfter(b) ? a : b;
   }
+
 
   @Override
   public String toString() {
