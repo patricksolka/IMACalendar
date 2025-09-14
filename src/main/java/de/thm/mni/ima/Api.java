@@ -33,7 +33,7 @@ public class Api {
 
     // AffairCatcher
     var affairCatcherApiCallHandler = new AffairCatcherApiCallHandler();
-    router.route("/employees/affairCatcher").handler(affairCatcherApiCallHandler::getAffairs);
+    router.route("/affairCatcher").handler(affairCatcherApiCallHandler::getAffairs);
 
     // Employees
     var employeeController = new EmployeeApiCallHandler();
