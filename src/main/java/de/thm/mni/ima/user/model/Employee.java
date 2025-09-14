@@ -114,21 +114,27 @@ public class Employee extends Entity {
   }
 
   /**
-   * Identity-based equality: two employees are equal iff both ids are present and equal.
-   *
+   * Identity-based equality: two employees are equal if both ids are present and equal.
+   * If ids are not set, equality falls back to comparing fname, sname, email and department.
    * @param o object to compare
    * @return true if same class and same non-null id; otherwise false
    */
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    Employee other = (Employee) o;
+    if (!(o instanceof Employee other)) return false;
 
     var id1 = this.getId();
     var id2 = other.getId();
-    if (id1.isEmpty() || id2.isEmpty()) return false;
-    return id1.get().equals(id2.get());
+
+    if (id1.isPresent() && id2.isPresent()) {
+      return id1.get().equals(id2.get());
+    }
+
+    return this.fname.equals(other.fname)
+      && this.sname.equals(other.sname)
+      && this.email.equals(other.email)
+      && this.department.equals(other.department);
   }
 
   /**
