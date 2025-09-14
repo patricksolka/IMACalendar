@@ -106,8 +106,10 @@ public class Event {
    * @return true if there is an overlap, false otherwise
    */
   public boolean overlaps(Event bEvent) {
-    return (this.start.isBefore(bEvent.end) || this.start.equals(bEvent.end))
-      && (this.end.isAfter(bEvent.start) || this.end.equals(bEvent.start));
+    if (bEvent == null) return false;
+    LocalDate s = max(this.start, bEvent.start);
+    LocalDate e = min(this.end, bEvent.end);
+    return !e.isBefore(s); // true, wenn e >= s
   }
 
   /**
@@ -117,12 +119,11 @@ public class Event {
    * @return the number of overlapping days, or 0 if there is no overlap
    */
   public int overlap(Event bEvent) {
-    if (!this.overlaps(bEvent)) return 0;
-
-    LocalDate start = max(this.start, bEvent.start);
-    LocalDate end = min(this.end, bEvent.end);
-
-    return (int) java.time.temporal.ChronoUnit.DAYS.between(start, end) + 1;
+    if (bEvent == null) return 0;
+    if (!overlaps(bEvent)) return 0;
+    LocalDate s = max(this.start, bEvent.start);
+    LocalDate e = min(this.end, bEvent.end);
+    return (int) ChronoUnit.DAYS.between(s, e) + 1;
   }
 
   /**
@@ -147,7 +148,6 @@ public class Event {
   private LocalDate max(LocalDate a, LocalDate b) {
     return a.isAfter(b) ? a : b;
   }
-
 
   @Override
   public String toString() {
