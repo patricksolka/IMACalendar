@@ -118,8 +118,9 @@ public class Event {
    * @return the number of overlapping days, or 0 if there is no overlap
    */
   public int overlap(Event bEvent) {
-    if (bEvent == null) return 0;
-    if (!overlaps(bEvent)) return 0;
+    if (bEvent == null || !overlaps(bEvent)) {
+      return 0;
+    }
     LocalDate s = max(this.start, bEvent.start);
     LocalDate e = min(this.end, bEvent.end);
     return (int) ChronoUnit.DAYS.between(s, e) + 1;
