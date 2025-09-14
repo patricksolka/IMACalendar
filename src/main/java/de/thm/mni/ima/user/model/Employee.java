@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import de.thm.mni.ima.calendar.model.Calendar;
 import de.thm.mni.ima.framework.Entity;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**

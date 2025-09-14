@@ -86,7 +86,6 @@ public class Event {
    * @return The duration of the event in days.
    */
   public int duration() {
-    // since between is exclusive we increase it by 1
     return (int) ChronoUnit.DAYS.between(start, end) + 1;
   }
 
@@ -109,7 +108,7 @@ public class Event {
     if (bEvent == null) return false;
     LocalDate s = max(this.start, bEvent.start);
     LocalDate e = min(this.end, bEvent.end);
-    return !e.isBefore(s); // true, wenn e >= s
+    return !e.isBefore(s);
   }
 
   /**

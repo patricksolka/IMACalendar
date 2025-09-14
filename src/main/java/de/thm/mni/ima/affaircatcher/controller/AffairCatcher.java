@@ -38,7 +38,7 @@ public class AffairCatcher {
     int overlap = 0;
     for (var ea : aEvents) {
       for (var eb : bEvents) {
-        overlap += ea.overlap(eb); // overlap in INKLUSIVEN Tagen
+        overlap += ea.overlap(eb);
       }
     }
 
@@ -57,7 +57,7 @@ public class AffairCatcher {
 
     for (int i = 0; i < list.size(); i++) {
       for (int j = 0; j < list.size(); j++) {
-        if (i == j) continue; // kein Paar mit sich selbst
+        if (i == j) continue;
         var a = list.get(i);
         var b = list.get(j);
 
